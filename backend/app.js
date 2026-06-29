@@ -3,19 +3,19 @@ const cors = require("cors");
 
 const app = express();
 
-const authRoutes = require("./routes/authRoutes");
-const laporanRoutes = require("./routes/laporanRoutes");
-const tpsRoutes = require("./routes/tpsRoutes");
-const dusunRoutes = require("./routes/dusunRoutes");
-const jadwalRoutes = require("./routes/jadwalRoutes");
-const kendaraanRoutes = require("./routes/kendaraanRoutes");
-const daftarTugasRoutes = require("./routes/daftarTugasRoutes");
-const petugasRoutes = require("./routes/petugasRoutes");
-const { startScheduler } = require("./services/daftarTugasOtomatisService");
-const dashboardRoutes = require("./routes/dashboardRoutes");
-const jamOperasionalRoutes = require("./routes/jamOperasionalRoutes");
-const desaSettingsRoutes = require('./routes/desaSettingsRoutes')
-const kadusRoutes = require("./routes/kadusRoutes");
+const authRoutes = require("./src/routes/authRoutes");
+const laporanRoutes = require("./src/routes/laporanRoutes");
+const tpsRoutes = require("./src/routes/tpsRoutes");
+const dusunRoutes = require("./src/routes/dusunRoutes");
+const jadwalRoutes = require("./src/routes/jadwalRoutes");
+const kendaraanRoutes = require("./src/routes/kendaraanRoutes");
+const daftarTugasRoutes = require("./src/routes/daftarTugasRoutes");
+const petugasRoutes = require("./src/routes/petugasRoutes");
+const { startScheduler } = require("./src/services/daftarTugasOtomatisService");
+const dashboardRoutes = require("./src/routes/dashboardRoutes");
+const jamOperasionalRoutes = require("./src/routes/jamOperasionalRoutes");
+const desaSettingsRoutes = require('./src/routes/desaSettingsRoutes')
+const kadusRoutes = require("./src/routes/kadusRoutes");
 
 app.use(express.json({ limit: '2mb' }));
 // const allowedOrigins = [
