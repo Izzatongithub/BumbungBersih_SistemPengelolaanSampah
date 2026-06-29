@@ -1,6 +1,6 @@
 const express = require('express')
 const router = express.Router()
-const DesaSettingsController = require('../controllers/DesaSettingsController')
+const DesaSettingsController = require('../controllers/desaSettingsController')
 
 router.get('/desa-settings/logo', DesaSettingsController.getLogo)
 router.post('/desa-settings/logo', DesaSettingsController.saveLogo)
