@@ -30,9 +30,9 @@ app.use(express.json({ limit: '2mb' }));
 // ];
 
 const allowedOrigins = [
-  'http://localhost:5173',
-  'https://bumbungbersih.sembalunbumbung.id',
-  'https://api.sembalunbumbung.id',
+  "http://localhost:5173",
+  "https://bumbungbersih.sembalunbumbung.id",
+  "https://apibb.sembalunbumbung.id",
 ];
 
 if (process.env.NODE_ENV === 'production') {

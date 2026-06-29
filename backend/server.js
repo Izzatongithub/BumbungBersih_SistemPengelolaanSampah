@@ -4,10 +4,6 @@ const {testConnection} = require("./src/config/db")
 
 const PORT = process.env.PORT || 3000;
 
-// app.listen(PORT, () => {
-//     console.log(`Server running on port ${PORT}`)
-// });
-
 async function startServer() {
   try {
     await testConnection()
