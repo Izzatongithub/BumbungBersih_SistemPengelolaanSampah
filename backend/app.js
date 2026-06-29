@@ -32,6 +32,7 @@ app.use(express.json({ limit: '2mb' }));
 const allowedOrigins = [
   "http://localhost:5173",
   "https://bumbungbersih.sembalunbumbung.id",
+  "https://sembalunbumbung.id",
   "https://apibb.sembalunbumbung.id",
 ];
 
