@@ -12,7 +12,7 @@ export function useDesaLogo() {
   async function fetchLogo() {
     loading.value = true
     try {
-      const { data } = await api.get('/logo')
+      const { data } = await api.get('/api/desa-settings/logo')
       logoSrc.value = data.logo_base64 ?? null
       lastUpdated.value = data.updated_at
         ? new Date(data.updated_at).toLocaleDateString('id-ID', {
@@ -30,7 +30,7 @@ export function useDesaLogo() {
     saving.value = true
     error.value = null
     try {
-      await api.post('/logo', { logo_base64: base64 })
+      await api.post('/api/desa-settings/logo', { logo_base64: base64 })
       logoSrc.value = base64
       await fetchLogo()
       return true
@@ -45,7 +45,7 @@ export function useDesaLogo() {
   async function deleteLogo() {
     saving.value = true
     try {
-      await api.delete('/logo')
+      await api.delete('/api/desa-settings/logo')
       logoSrc.value = null
       lastUpdated.value = null
     } catch {
