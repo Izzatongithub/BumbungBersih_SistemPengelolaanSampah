@@ -1,4 +1,4 @@
-const DesaSettingsModel = require('../models/DesaSettingsModel')
+const DesaSettingsModel = require('../models/desaSettingsModel')
 
 const MAX_BASE64_KB = 700 // ~512KB file asli setelah di-encode Base64
 
