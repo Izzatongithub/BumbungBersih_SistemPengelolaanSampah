@@ -1,5 +1,12 @@
 const mysql = require("mysql2/promise");
 
+console.log({
+  host: process.env.DB_HOST,
+  user: process.env.DB_USER,
+  pass: process.env.DB_PASS ? "ADA" : "KOSONG",
+  db: process.env.DB_NAME,
+});
+
 const db = mysql.createPool({
     host: process.env.DB_HOST,
     user: process.env.DB_USER,
