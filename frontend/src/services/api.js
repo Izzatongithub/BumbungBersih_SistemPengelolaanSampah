@@ -2,7 +2,7 @@ import axios from 'axios'
 
 const api = axios.create({
   // baseURL: import.meta.env.VITE_API_BASE_URL || 'http://localhost:3000',
-  baseURL: import.meta.env.VITE_API_BASE_URL || 'https://api.sembalunbumbung.id',
+  baseURL: import.meta.env.VITE_API_BASE_URL || 'https://apibb.sembalunbumbung.id',
   timeout: 15000, // 15 detik timeout untuk setiap request
 })
 
