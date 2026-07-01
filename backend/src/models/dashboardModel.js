@@ -73,7 +73,7 @@ async function getStatusTPS() {
           END AS status_tps
         FROM tps t
         LEFT JOIN (
-            ECT id_tps, MAX(volume_sampah) AS vol
+            SELECT id_tps, MAX(volume_sampah) AS vol
           FROM daftar_tugas
             WHERE DATE(tgl_terakhir_diambil) = CURDATE()
               OR (tgl_pengambilan = CURDATE() AND status_angkut != 'selesai')
