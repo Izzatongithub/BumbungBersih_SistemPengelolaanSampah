@@ -25,6 +25,14 @@
 import { onMounted, ref } from 'vue'
 import L from 'leaflet'
 
+// Tambahkan blok ini — override path icon default Leaflet
+delete L.Icon.Default.prototype._getIconUrl
+L.Icon.Default.mergeOptions({
+  iconRetinaUrl: '/marker-icon-2x.png',
+  iconUrl: '/marker-icon.png',
+  shadowUrl: '/marker-shadow.png',
+})
+
 const props = defineProps({
   lat: Number,
   lng: Number,
