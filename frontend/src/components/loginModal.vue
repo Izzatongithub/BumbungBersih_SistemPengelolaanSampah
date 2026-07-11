@@ -54,7 +54,9 @@
       <p class="login-role-desc">
         {{ role === 'petugas'
           ? 'Kelola jadwal & status pengambilan sampah'
-          : 'Lihat data desa'
+              : role === 'admin'
+              ? 'Lihat & kelola data desa'
+              : 'Lihat data desa'
         }}
       </p>
 
@@ -168,20 +170,24 @@ function reset() {
 }
 
 async function submit() {
+  if (loading.value) return
+
   errorUser.value = ''
   errorPass.value = ''
 
-    if (!username.value) {
-      errorUser.value = 'Username tidak boleh kosong'
-      return
-    }
-    if (!password.value) {
-      errorPass.value = 'Password tidak boleh kosong'
-      return
-    }
+  if (!username.value) {
+    errorUser.value = 'Username tidak boleh kosong'
+    return
+  }
+  if (!password.value) {
+    errorPass.value = 'Password tidak boleh kosong'
+    return
+  }
 
-    try {
-      const data = await apiFetch('/api/auth/login', {
+  loading.value = true
+
+  try {
+    const data = await apiFetch('/api/auth/login', {
         method: 'POST',
         auth: false,
         body: {
