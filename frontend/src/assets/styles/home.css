@@ -1935,11 +1935,11 @@ textarea {
         height: 36px;
         justify-content: center;
     }
-
+    
     .btn-login-header span:last-child {
         display: none; /* Hide "Masuk" text on mobile */
     }
-
+    
     .btn-report {
         padding: 8px;
         border-radius: 50%;
@@ -1948,9 +1948,21 @@ textarea {
         justify-content: center;
         gap: 0;
     }
-
+    
     .btn-report span:last-child {
         display: none; /* Hide report text on mobile */
+    }
+
+    .btn-help-header {
+        padding: 8px;
+        border-radius: 50%;
+        width: 36px;
+        height: 36px;
+        justify-content: center;
+    }
+
+    .btn-help-header span:last-child {
+        display: none;
     }
 
     .main-content {

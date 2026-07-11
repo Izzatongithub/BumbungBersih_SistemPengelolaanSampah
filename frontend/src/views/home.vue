@@ -303,7 +303,7 @@
                 </button>
             </div>
             <div class="modal-body schedule-body">
-                <p>Gunakan link di bawah untuk mempelajari cara menggunakan aplikasi.</p>
+                <p>Gunakan link di bawah untuk mempelajari cara menggunakan website.</p>
                 <div class="help-links">
                     <a :href="helpVideoUrl" target="_blank" rel="noopener" class="help-link">
                         <span class="material-icons">play_circle</span>
