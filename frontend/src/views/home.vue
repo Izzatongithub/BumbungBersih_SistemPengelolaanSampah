@@ -23,14 +23,20 @@
                 <span>Masuk</span>
             </button>
 
+            
             <LoginModal ref="loginRef" />
-
+            
             <button class="btn-report" @click="openReport()">
                 <span class="material-icons">report_problem</span>
                 <span>Lapor Sampah Penuh</span>
             </button>
-
+            
             <ReportModal ref="reportRef" />
+
+            <button class="btn-help-header" @click="openHelpModal()" title="Panduan Penggunaan">
+                <span class="material-icons">help_outline</span>
+                <span>Panduan</span>
+            </button>
         </div>
     </header>
 
@@ -61,6 +67,9 @@
             <div class="map-controls">
                 <button class="map-btn" id="btnMyLocation" title="Lokasi Saya">
                     <span class="material-icons">my_location</span>
+                </button>
+                <button class="map-btn map-help-btn" title="Bantuan Panduan" @click="openHelpModal()">
+                    <span class="material-icons">help_outline</span>
                 </button>
             </div>
 
@@ -280,6 +289,41 @@
         <p>Memuat data...</p>
     </div>
 
+    <!-- Help Modal -->
+    <div class="modal" v-if="isHelpModalOpen" :class="{ show: isHelpModalOpen }">
+        <div class="modal-overlay" @click="closeHelpModal"></div>
+        <div class="modal-content modal-schedule">
+            <div class="modal-header">
+                <h2>
+                    <span class="material-icons">help_outline</span>
+                    Panduan Penggunaan
+                </h2>
+                <button class="modal-close" @click="closeHelpModal">
+                    <span class="material-icons">close</span>
+                </button>
+            </div>
+            <div class="modal-body schedule-body">
+                <p>Gunakan link di bawah untuk mempelajari cara menggunakan aplikasi.</p>
+                <div class="help-links">
+                    <a :href="helpVideoUrl" target="_blank" rel="noopener" class="help-link">
+                        <span class="material-icons">play_circle</span>
+                        <div>
+                            <strong>Video Tutorial</strong>
+                            <p>Tonton panduan penggunaan website.</p>
+                        </div>
+                    </a>
+                    <a :href="helpDocUrl" target="_blank" rel="noopener" class="help-link">
+                        <span class="material-icons">menu_book</span>
+                        <div>
+                            <strong>Buku Panduan</strong>
+                            <p>Dokumentasi lengkap penggunaan sistem.</p>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <!-- Modal Login Popup -->
     <div class="modal-login-overlay" id="modalLoginOverlay"></div>
     <div class="modal-login" id="modalLogin">
@@ -399,6 +443,10 @@ const selectedStatus = ref(['normal', 'hampir_penuh', 'penuh'])
 
 const loginRef = ref(null)
 const reportRef = ref(null)
+
+const isHelpModalOpen = ref(false)
+const helpVideoUrl = 'https://www.youtube.com/watch?v=MASUKAN_LINK_VIDEO_DI_SINI'
+const helpDocUrl = 'https://drive.google.com/file/d/1tKrpzbGvPhgno2fTqDxeSHwpFQQiOryM/view?usp=sharing'
 
 const isModalVolumeSampahOpen = ref(false)
 const isModalTimbulanOpen = ref(false)
@@ -602,8 +650,18 @@ function openReport(id_tps = null) {
     alert('Modal laporan tidak tersedia (reportRef null). Periksa console untuk detail.')
 }
 
+function openHelpModal() {
+    isHelpModalOpen.value = true
+}
+
+function closeHelpModal() {
+    isHelpModalOpen.value = false
+}
+
 // Expose ke global window agar bisa diakses dari atribut onclick di string HTML Leaflet popup
 window.openReport = openReport;
+
+window.openHelpModal = openHelpModal;
 
 function openScheduleModal(desa) { 
     selectedDesa.value = desa
